@@ -35,7 +35,7 @@ export default class MainNavbar extends Component {
         return (
             <div className="MainNavbar">
                 <Navbar expand="sm" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">INF NIM Finder</Navbar.Brand>
+                    <Navbar.Brand href={process.env.PUBLIC_URL + "/"}>INF NIM Finder</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse className="justify-content-end">
                         {this.renderLoginOption()}
