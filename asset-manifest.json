@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/miner46er/INF-NIM-Finder/static/css/main.29b11ee1.chunk.css",
-    "main.js": "/miner46er/INF-NIM-Finder/static/js/main.fb4b2701.chunk.js",
-    "main.js.map": "/miner46er/INF-NIM-Finder/static/js/main.fb4b2701.chunk.js.map",
-    "runtime~main.js": "/miner46er/INF-NIM-Finder/static/js/runtime~main.a158fbd4.js",
-    "runtime~main.js.map": "/miner46er/INF-NIM-Finder/static/js/runtime~main.a158fbd4.js.map",
-    "static/js/2.760f482d.chunk.js": "/miner46er/INF-NIM-Finder/static/js/2.760f482d.chunk.js",
-    "static/js/2.760f482d.chunk.js.map": "/miner46er/INF-NIM-Finder/static/js/2.760f482d.chunk.js.map",
-    "index.html": "/miner46er/INF-NIM-Finder/index.html",
-    "precache-manifest.21199456ceb8cce26211125dd00d8dcc.js": "/miner46er/INF-NIM-Finder/precache-manifest.21199456ceb8cce26211125dd00d8dcc.js",
-    "service-worker.js": "/miner46er/INF-NIM-Finder/service-worker.js",
-    "static/css/main.29b11ee1.chunk.css.map": "/miner46er/INF-NIM-Finder/static/css/main.29b11ee1.chunk.css.map"
+    "main.css": "/INF-NIM-Finder/static/css/main.29b11ee1.chunk.css",
+    "main.js": "/INF-NIM-Finder/static/js/main.fb4b2701.chunk.js",
+    "main.js.map": "/INF-NIM-Finder/static/js/main.fb4b2701.chunk.js.map",
+    "runtime~main.js": "/INF-NIM-Finder/static/js/runtime~main.e92d980c.js",
+    "runtime~main.js.map": "/INF-NIM-Finder/static/js/runtime~main.e92d980c.js.map",
+    "static/js/2.38cfaff6.chunk.js": "/INF-NIM-Finder/static/js/2.38cfaff6.chunk.js",
+    "static/js/2.38cfaff6.chunk.js.map": "/INF-NIM-Finder/static/js/2.38cfaff6.chunk.js.map",
+    "index.html": "/INF-NIM-Finder/index.html",
+    "precache-manifest.51c31254031e419a5bf66c9e4e1dd20b.js": "/INF-NIM-Finder/precache-manifest.51c31254031e419a5bf66c9e4e1dd20b.js",
+    "service-worker.js": "/INF-NIM-Finder/service-worker.js",
+    "static/css/main.29b11ee1.chunk.css.map": "/INF-NIM-Finder/static/css/main.29b11ee1.chunk.css.map"
   }
 }
