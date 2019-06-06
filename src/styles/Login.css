@@ -1,0 +1,16 @@
+@media all and (min-width: 200px) {
+  .Login {
+    padding: 60px 20px;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
+
+#login-header {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}

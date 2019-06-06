@@ -1,0 +1,16 @@
+@media all and (min-width: 200px) {
+  .Register {
+    padding: 60px 20px;
+  }
+
+  .Register form {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
+
+#register-header {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
