@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { LinkContainer } from 'react-router-bootstrap'
 import "../styles/MainNavbar.css";
 
 export default class MainNavbar extends Component {
@@ -12,8 +13,12 @@ export default class MainNavbar extends Component {
         if(!this.props.isLoggedIn) {
             return (
                 <Nav>
-                    <Nav.Link href="/register">Register</Nav.Link>
-                    <Nav.Link href="/login">Login</Nav.Link>
+                    <LinkContainer to="/register">
+                        <Nav.Link>Register</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/login">
+                        <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
                 </Nav>
             );
         }

@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import FormGroup from "react-bootstrap/FormGroup";
 import FormLabel from "react-bootstrap/FormLabel";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
 import "../styles/Register.css";
@@ -99,7 +99,7 @@ export default class Register extends Component {
                         Register
                     </Button>
                     <p>
-                        or, <a href="/login">login</a>.
+                        or, <Link to="/login">login</Link>.
                     </p>
                 </form>
             </div>

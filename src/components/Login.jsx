@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import FormGroup from "react-bootstrap/FormGroup";
 import FormLabel from "react-bootstrap/FormLabel";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
 import cookie from "react-cookies";
@@ -96,7 +96,7 @@ export default class Login extends Component {
                         Login
                     </Button>
                     <p>
-                        or, <a href="/register">register</a>.
+                        or, <Link to="/register">register</Link>.
                     </p>
                 </form>
             </div>
