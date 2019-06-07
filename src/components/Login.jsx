@@ -55,7 +55,8 @@ export default class Login extends Component {
         }
 
         axios(options)
-            .then(res => this.handleLoginResponse(res.data));
+            .then(res => this.handleLoginResponse(res.data))
+            .catch(error => {alert(error); console.log(error)});
     }
 
     render() {

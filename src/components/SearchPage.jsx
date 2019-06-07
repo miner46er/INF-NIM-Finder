@@ -142,7 +142,8 @@ export default class SearchPage extends Component {
         listMahasiswa: res.data.payload,
         lastQuery: res.data.query,
         haveSearched: true
-      }));
+      }))
+      .catch(error => {alert(error); console.log(error)});
   }
 
   handleChange = event => {
