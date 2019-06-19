@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb193b40c45b84fdb63450452df171bb",
+    "revision": "0f36097167b4d2fbff966ced7500ab7b",
     "url": "/INF-NIM-Finder/index.html"
   },
   {
-    "revision": "892e6665833d0c9aef3c",
+    "revision": "806f2d9b24b94c08fa7d",
     "url": "/INF-NIM-Finder/static/css/main.29b11ee1.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/INF-NIM-Finder/static/js/2.f7b621f7.chunk.js"
   },
   {
-    "revision": "892e6665833d0c9aef3c",
-    "url": "/INF-NIM-Finder/static/js/main.d8746775.chunk.js"
+    "revision": "806f2d9b24b94c08fa7d",
+    "url": "/INF-NIM-Finder/static/js/main.95aae4be.chunk.js"
   },
   {
     "revision": "3043530a162584cb85f0",
