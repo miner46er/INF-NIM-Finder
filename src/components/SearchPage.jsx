@@ -7,6 +7,10 @@ import axios from "axios";
 import qs from "qs";
 import "../styles/SearchPage.css";
 
+/**
+ * Search bar that contains input form and a submit button.
+ * @param {Props} props 
+ */
 function SearchBar(props) {
   return(
     <div className="SearchBar">
@@ -29,6 +33,10 @@ function SearchBar(props) {
   );
 }
 
+/**
+ * Navigation for search result pages.
+ * @param {Props} props 
+ */
 function SearchNavigation(props) {
   return(
     <div className="SearchNavigation">
@@ -53,13 +61,19 @@ function SearchNavigation(props) {
   );
 }
 
+/**
+ * Presents the search result in a table.
+ * @param {Props} props 
+ */
 function SearchResults(props) {
+  // check whether the page's result contains desireable data
   if (props.listMahasiswa === null ||
     props.listMahasiswa === undefined ||
     props.listMahasiswa.length === 0) {
     return <h2 id="NoResult">No Result</h2>;
   }
 
+  // maps search results to table rows
   const tableMahasiswa = props.listMahasiswa.map(
     (mahasiswa) => 
       <tr key={mahasiswa.nim_tpb}>
@@ -90,6 +104,9 @@ function SearchResults(props) {
   );
 }
 
+/**
+ * Main NIM finder search page.
+ */
 export default class SearchPage extends Component {
   constructor(props) {
     super(props);
@@ -106,6 +123,10 @@ export default class SearchPage extends Component {
     this.changePage = this.changePage.bind(this);
   }
 
+  /**
+   * Change page to value to newPage
+   * @param {Number} newPage new page value
+   */
   changePage(newPage) {
     this.setState(
       { page: newPage },
@@ -113,11 +134,15 @@ export default class SearchPage extends Component {
     );
   }
 
+  /**
+   * Handles search query sending
+   */
   sendQuery() {
 
     // check whether the search field contains only alphanumeric or not
     const isQueryName = isNaN(this.state.searchField) ? true : false;
 
+    // prepares query data depending on query tipe (name/NIM)
     const params = {
       ...(isQueryName ?
           {name: this.state.searchField} :
@@ -126,17 +151,20 @@ export default class SearchPage extends Component {
       count: this.state.resultCountPerPage
     };
 
+    // prepares query  url depending on query tipe (name/NIM)
     const queryUrl = "https://api.stya.net/nim/"
                       + (isQueryName ? "byname" : "byid")
                       + "?"
                       + qs.stringify(params);
     
+    // prepares axios config
     const options = {
       method: "GET",
       url: queryUrl,
       headers: { 'Auth-Token': this.props.token },
     };
 
+    // sending the query
     axios(options)
       .then(res => this.setState({
         listMahasiswa: res.data.payload,
@@ -146,12 +174,20 @@ export default class SearchPage extends Component {
       .catch(error => {alert(error); console.log(error)});
   }
 
+  /**
+   * Handles form's onChange event
+   * @param {Event} event onChange event
+   */
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
   }
 
+  /**
+   * Handles form's onSubmit event
+   * @param {Event} event onSubmit event
+   */
   handleSubmit = async event => {
     event.preventDefault();
 

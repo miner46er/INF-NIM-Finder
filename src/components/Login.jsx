@@ -9,6 +9,9 @@ import qs from "qs";
 import cookie from "react-cookies";
 import "../styles/Login.css";
 
+/**
+ * Component that take care of user login.
+ */
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -19,12 +22,20 @@ export default class Login extends Component {
         };
     }
 
+    /**
+     * Handles form's onChange event
+     * @param {Event} event onChange event
+     */
     handleChange = event => {
       this.setState({
         [event.target.id]: event.target.value
       });
     }
 
+    /**
+     * Handles the server's response for login
+     * @param {JSON} data server's response data
+     */
     handleLoginResponse(data) {
         if (data.code === 0 && data.status === "OK") {
             const expires = new Date(Date.now());
@@ -39,14 +50,21 @@ export default class Login extends Component {
         }
     }
 
+    /**
+     * Handles form's onSubmit event
+     * @param {Event} event onSubmit event
+     */
     handleSubmit = async event => {
+        // prevent default action to be taken
         event.preventDefault();
 
+        // prepares the login data to be sent
         const loginData = {
             username: this.state.username,
             password: this.state.password,
         };
 
+        // prepares axios request config
         const options = {
             method: "POST",
             url: "https://api.stya.net/nim/login",
@@ -54,12 +72,17 @@ export default class Login extends Component {
             data: qs.stringify(loginData),
         }
 
+        // sending the request
         axios(options)
             .then(res => this.handleLoginResponse(res.data))
             .catch(error => {alert(error); console.log(error)});
     }
 
+    /**
+     * React render method
+     */
     render() {
+        // redirect user if already logged in
         if (this.props.isLoggedIn) {
             return(
                 <Redirect to="/" />

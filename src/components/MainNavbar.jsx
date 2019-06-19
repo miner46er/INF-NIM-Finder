@@ -4,11 +4,16 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
 import "../styles/MainNavbar.css";
 
+/**
+ * Main navbar of the site.
+ * Contains site's brand and login and register option
+ */
 export default class MainNavbar extends Component {
     onLogout = () => {
         this.props.onLogout();
     }
 
+    // renders login and register option if not logged in
     renderLoginOption() {
         if(!this.props.isLoggedIn) {
             return (

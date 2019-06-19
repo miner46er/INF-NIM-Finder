@@ -3,6 +3,9 @@ import Login from "./Login";
 import SearchPage from "./SearchPage";
 import "../styles/Home.css";
 
+/**
+ * Site's landing page.
+ */
 function LandingPage(props) {
   return(
     <div className="lander">
@@ -20,6 +23,10 @@ function LandingPage(props) {
   );
 }
 
+/**
+ * Site's home page
+ * @param {Props} props React props
+ */
 export default function Home(props) {
   return (
     <div className="Home">

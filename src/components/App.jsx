@@ -8,6 +8,10 @@ import Register from "./Register";
 import NotFound from "./NotFound";
 import '../styles/App.css';
 
+/**
+ * Main App class.
+ * Handle site's routes.
+ */
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +27,7 @@ class App extends Component {
     this.onLogout = this.onLogout.bind(this);
   }
 
+  // callback for login event
   onLogin() {
     const token = cookie.load("token");
 
@@ -32,6 +37,7 @@ class App extends Component {
     });
   }
 
+  // callback for logout event
   onLogout() {
     cookie.remove("token", { path: '/' });
 
