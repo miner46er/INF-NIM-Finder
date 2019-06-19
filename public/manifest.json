@@ -1,6 +1,13 @@
 {
   "short_name": "INF NIM Finder",
   "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "151x152 144x144 120x120 114x114 72x72 64x64 57x57 48x48 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
