@@ -38,14 +38,17 @@ export default class Login extends Component {
      */
     handleLoginResponse(data) {
         if (data.code === 0 && data.status === "OK") {
+            // get the time one day from now
             const expires = new Date(Date.now());
             expires.setDate(expires.getDate() + 1);
 
+            // save cookie
             cookie.save("token", data.token, { path: '/', expires });
 
             this.props.onLogin();
         }
         else {
+            // alert error
             alert(data.status);
         }
     }

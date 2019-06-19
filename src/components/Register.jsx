@@ -43,6 +43,7 @@ export default class Register extends Component {
             });
         }
         else {
+            // alert error
             alert(data.status);
         }
     }
