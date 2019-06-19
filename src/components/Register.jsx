@@ -36,7 +36,7 @@ export default class Register extends Component {
      * Handles the server's response for registration
      * @param {JSON} data server's response data
      */
-    handleLoginResponse(data) {
+    handleRegisterResponse(data) {
         if (data.code === 0 && data.status === "OK") {
             this.setState({
                 registerSuccessful: true
@@ -72,7 +72,7 @@ export default class Register extends Component {
 
         // sending the request
         axios(options)
-            .then(res => this.handleLoginResponse(res.data))
+            .then(res => this.handleRegisterResponse(res.data))
             .catch(error => {alert(error); console.log(error)});
     }
     
