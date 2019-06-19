@@ -48,7 +48,7 @@ function SearchNavigation(props) {
         &#8249; Previous
       </Button>
       <p>
-        Page: {props.page}
+        Page: {props.page + 1}
       </p>
       <Button
         disabled={props.pageEntryCount === 0}
