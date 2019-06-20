@@ -13,9 +13,14 @@ import "../styles/App.css";
  * Handle site's routes.
  */
 class App extends Component {
+  /**
+   *
+   * @param {Props} props
+   */
   constructor(props) {
     super(props);
-    // checks whether there is already a login cookie
+
+    /** Token login pengguna */
     const token = cookie.load("token");
 
     this.state = {
@@ -27,7 +32,9 @@ class App extends Component {
     this.onLogout = this.onLogout.bind(this);
   }
 
-  // callback for login event
+  /**
+   * Callback for login event
+   */
   onLogin() {
     const token = cookie.load("token");
 
@@ -37,7 +44,9 @@ class App extends Component {
     });
   }
 
-  // callback for logout event
+  /**
+   * Callback for logout event
+   */
   onLogout() {
     cookie.remove("token", { path: "/" });
 
@@ -47,6 +56,9 @@ class App extends Component {
     });
   }
 
+  /**
+   * React render method
+   */
   render() {
     return (
       <div className="App">

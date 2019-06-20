@@ -13,6 +13,10 @@ import "../styles/Login.css";
  * Component that take care of user login.
  */
 export default class Login extends Component {
+  /**
+   *
+   * @param {Props} props
+   */
   constructor(props) {
     super(props);
 

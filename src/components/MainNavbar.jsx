@@ -9,11 +9,16 @@ import "../styles/MainNavbar.css";
  * Contains site's brand and login and register option
  */
 export default class MainNavbar extends Component {
+  /**
+   * Callback for logout event
+   */
   onLogout = () => {
     this.props.onLogout();
   };
 
-  // renders login and register option if not logged in
+  /**
+   * Renders login and register option if not logged in
+   */
   renderLoginOption() {
     if (!this.props.isLoggedIn) {
       return (
@@ -37,6 +42,9 @@ export default class MainNavbar extends Component {
     }
   }
 
+  /**
+   * React render method
+   */
   render() {
     return (
       <div className="MainNavbar">

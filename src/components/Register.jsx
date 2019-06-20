@@ -12,6 +12,10 @@ import "../styles/Register.css";
  * Component that take care of user registration.
  */
 export default class Register extends Component {
+  /**
+   *
+   * @param {Props} props
+   */
   constructor(props) {
     super(props);
 
@@ -78,6 +82,9 @@ export default class Register extends Component {
       });
   };
 
+  /**
+   * React render method
+   */
   render() {
     // redirect user if already logged in
     if (this.props.isLoggedIn) {
