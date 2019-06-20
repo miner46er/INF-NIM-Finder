@@ -121,6 +121,46 @@ _Design pattern_ yang digunakan antara lain adalah:
 
   _Design pattern_ ini digunakan dalam rendering _component_ yang dilakukan oleh _method_ `render` pada setiap _class component_ dan `return` dari setiap _functional component_.
 
+### Penjelasan kelas-kelas
+
+- **App**
+
+  Kelas _controller_ utama dari aplikasi ini.
+  Mengatur _state_ telah _login_ atau tidaknya pengguna.
+
+- **Home**
+
+  Mengatur halaman utama aplikasi ini.
+  Menampilkan _landing page_ dan _login page_ jika pengguna belum melakukan _login_.
+  Menampilkan _search page_ jika pengguna memiliki _session_ login.
+
+- **MainNavbar**
+
+  Menampilkan _navigation bar_ untuk menuju ke halaman utama, halaman _login_, atau halaman _register_.
+
+- **Login**
+
+  Menampilkan halaman bagi pengguna untuk _login_.
+  Melakukan _request_ untuk _login_ ke API.
+
+- **Register**
+
+  Menampilkan halaman bagi pengguna untuk _register_.
+  Melakukan _request_ untuk _register_ ke API.
+
+- **Searchpage**
+
+  Menampilkan dan menangani _query_ pencarian yang dilakukan oleh pengguna.
+  Mengirimkan _request_ ke API dengan `count = 10`.
+
+- **NotFound**
+
+  Menampilkan pesan bahwa halaman ingin dikunjungi pengguna tidak ada.
+
 ## Review desain API
 
-API yang digunakan (https://api.stya.net/nim) cukup lengkap mencakup kakas yang dibutuhkan untuk mencari data mahasiswa. Namun satu hal yang menurut saya kurang adalah informasi mengenai banyaknya total data yang dihasilkan dari suatu query (misal jumlah mahasiswa dengan NIM parsial 13517) yang sangat dibutuhkan untuk mengetahui jumlah page total untuk paginasi.
+API yang digunakan (https://api.stya.net/nim) cukup lengkap mencakup kakas yang dibutuhkan untuk mencari data mahasiswa.
+
+Namun salah satu hal yang menurut saya kurang adalah informasi mengenai banyaknya total data yang dihasilkan dari suatu query (misal jumlah mahasiswa dengan NIM parsial 13517) yang sangat dibutuhkan untuk mengetahui jumlah page total untuk paginasi.
+
+Selain itu, lamanya batas waktu token sejak diterbitkan hingga kadaluarsa (1 hari) tergolong cukup lama dan dapat menyebabkan kerentanan yang dapat dieksploitasi oleh pihak tidak bertanggung jawab.
