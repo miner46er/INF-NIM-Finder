@@ -116,6 +116,7 @@ Data yang digunakan untuk pencarian didapatkan dari _endpoint_ API https://api.s
 _Design pattern_ yang digunakan antara lain adalah:
 
 - **_Chain of Responsibility_**
+
   _Chain of Responsibility_ merupakan _behavorial design pattern_ yang memungkinkan kita untuk meneruskan suatu _request_ melalui serangkaian _handler_. Setelah menerima suatu _request_, setiap _handler_ menentukan apakah akan memproses _request_ tersebut atau meneruskannya ke _handler_ berikutnya dalam rangkaian.
 
   _Design pattern_ ini digunakan dalam rendering _component_ yang dilakukan oleh _method_ `render` pada setiap _class component_ dan `return` dari setiap _functional component_.
@@ -123,22 +124,27 @@ _Design pattern_ yang digunakan antara lain adalah:
 ### Penjelasan kelas-kelas
 
 - **App**
+
   Kelas _controller_ utama dari aplikasi ini.
   Mengatur _state_ telah _login_ atau tidaknya pengguna.
 
 - **Home**
+
   Mengatur halaman utama aplikasi ini.
   Menampilkan _landing page_ dan _login page_ jika pengguna belum melakukan _login_.
   Menampilkan _search page_ jika pengguna memiliki _session_ login.
 
 - **MainNavbar**
+
   Menampilkan _navigation bar_ untuk menuju ke halaman utama, halaman _login_, atau halaman _register_.
 
 - **Login**
+
   Menampilkan halaman bagi pengguna untuk _login_.
   Melakukan _request_ untuk _login_ ke API.
 
 - **Register**
+
   Menampilkan halaman bagi pengguna untuk _register_.
   Melakukan _request_ untuk _register_ ke API.
 
@@ -148,6 +154,7 @@ _Design pattern_ yang digunakan antara lain adalah:
   Mengirimkan _request_ ke API dengan `count = 10`.
 
 - **NotFound**
+
   Menampilkan pesan bahwa halaman ingin dikunjungi pengguna tidak ada.
 
 ## Review desain API
