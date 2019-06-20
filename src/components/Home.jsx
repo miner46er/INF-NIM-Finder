@@ -7,7 +7,7 @@ import "../styles/Home.css";
  * Site's landing page.
  */
 function LandingPage(props) {
-  return(
+  return (
     <div className="lander">
       <div className="landerMessage">
         <div>
@@ -15,10 +15,7 @@ function LandingPage(props) {
           <p>Yet another NIM Finder</p>
         </div>
       </div>
-      <Login
-        isLoggedIn={props.isLoggedIn}
-        onLogin={props.onLogin}
-      />
+      <Login isLoggedIn={props.isLoggedIn} onLogin={props.onLogin} />
     </div>
   );
 }
@@ -30,18 +27,15 @@ function LandingPage(props) {
 export default function Home(props) {
   return (
     <div className="Home">
-      {
-        props.isLoggedIn?
-          <SearchPage 
-            isLoggedIn={props.isLoggedIn}
-            token={props.token}
-            onLogin={props.onLogin}
-          /> :
-          <LandingPage
-            isLoggedIn={props.isLoggedIn}
-            onLogin={props.onLogin}
-          />
-      }
+      {props.isLoggedIn ? (
+        <SearchPage
+          isLoggedIn={props.isLoggedIn}
+          token={props.token}
+          onLogin={props.onLogin}
+        />
+      ) : (
+        <LandingPage isLoggedIn={props.isLoggedIn} onLogin={props.onLogin} />
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from "react-router-bootstrap";
 import "../styles/MainNavbar.css";
 
 /**
@@ -9,49 +9,47 @@ import "../styles/MainNavbar.css";
  * Contains site's brand and login and register option
  */
 export default class MainNavbar extends Component {
-    onLogout = () => {
-        this.props.onLogout();
-    }
+  onLogout = () => {
+    this.props.onLogout();
+  };
 
-    // renders login and register option if not logged in
-    renderLoginOption() {
-        if(!this.props.isLoggedIn) {
-            return (
-                <Nav>
-                    <LinkContainer to="/register">
-                        <Nav.Link>Register</Nav.Link>
-                    </LinkContainer>
-                    <LinkContainer to="/login">
-                        <Nav.Link>Login</Nav.Link>
-                    </LinkContainer>
-                </Nav>
-            );
-        }
-        else {
-            return (
-                <Nav>
-                    <Nav.Link
-                        eventKey={0}
-                        onSelect={this.onLogout}
-                    >
-                        Logout
-                    </Nav.Link>
-                </Nav>
-            );
-        }
+  // renders login and register option if not logged in
+  renderLoginOption() {
+    if (!this.props.isLoggedIn) {
+      return (
+        <Nav>
+          <LinkContainer to="/register">
+            <Nav.Link>Register</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/login">
+            <Nav.Link>Login</Nav.Link>
+          </LinkContainer>
+        </Nav>
+      );
+    } else {
+      return (
+        <Nav>
+          <Nav.Link eventKey={0} onSelect={this.onLogout}>
+            Logout
+          </Nav.Link>
+        </Nav>
+      );
     }
+  }
 
-    render() {
-        return (
-            <div className="MainNavbar">
-                <Navbar expand="sm" bg="dark" variant="dark">
-                    <Navbar.Brand href={process.env.PUBLIC_URL + "/"}>INF NIM Finder</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                    <Navbar.Collapse className="justify-content-end">
-                        {this.renderLoginOption()}
-                    </Navbar.Collapse>
-                </Navbar>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="MainNavbar">
+        <Navbar expand="sm" bg="dark" variant="dark">
+          <Navbar.Brand href={process.env.PUBLIC_URL + "/"}>
+            INF NIM Finder
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse className="justify-content-end">
+            {this.renderLoginOption()}
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    );
+  }
 }

@@ -1,37 +1,37 @@
 @media all and (min-width: 200px) {
-    .SearchPage {
-        padding: 0 20px;
-    }
+  .SearchPage {
+    padding: 0 20px;
+  }
 
-    .SearchPage .SearchBar {
-        margin: 0 auto;
-        padding: 60px 0;
-        max-width: 550px;
-    }
+  .SearchPage .SearchBar {
+    margin: 0 auto;
+    padding: 60px 0;
+    max-width: 550px;
+  }
 
-    .SearchPage .SearchResults {
-        margin: 0 auto;
-        max-width: 800px;
-    }
+  .SearchPage .SearchResults {
+    margin: 0 auto;
+    max-width: 800px;
+  }
 
-    .SearchPage #NoResult {
-        text-align: center;
-    }
+  .SearchPage #NoResult {
+    text-align: center;
+  }
 
-    .SearchPage .SearchNavigation {
-        display: flex;
+  .SearchPage .SearchNavigation {
+    display: flex;
 
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
 
-        padding: 20px;
-    }
+    padding: 20px;
+  }
 
-    .SearchPage .btn {
-        min-width: 100px;
-    }
+  .SearchPage .btn {
+    min-width: 100px;
+  }
 
-    .SearchPage .SearchNavigation p {
-        margin: auto 30px;
-    }
+  .SearchPage .SearchNavigation p {
+    margin: auto 30px;
+  }
 }

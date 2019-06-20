@@ -6,7 +6,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import NotFound from "./NotFound";
-import '../styles/App.css';
+import "../styles/App.css";
 
 /**
  * Main App class.
@@ -20,7 +20,7 @@ class App extends Component {
 
     this.state = {
       token: token,
-      isLoggedIn: token!==undefined&&token!==null,
+      isLoggedIn: token !== undefined && token !== null
     };
 
     this.onLogin = this.onLogin.bind(this);
@@ -33,17 +33,17 @@ class App extends Component {
 
     this.setState({
       token: token,
-      isLoggedIn: true,
+      isLoggedIn: true
     });
   }
 
   // callback for logout event
   onLogout() {
-    cookie.remove("token", { path: '/' });
+    cookie.remove("token", { path: "/" });
 
     this.setState({
       token: undefined,
-      isLoggedIn: false,
+      isLoggedIn: false
     });
   }
 
@@ -58,32 +58,32 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={(props) =>
-              <Home {...props}
+            render={props => (
+              <Home
+                {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 token={this.state.token}
                 onLogin={this.onLogin}
               />
-            }
+            )}
           />
           <Route
             path="/login"
             exact
-            render={(props) =>
-              <Login {...props}
+            render={props => (
+              <Login
+                {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 onLogin={this.onLogin}
               />
-            }
+            )}
           />
           <Route
             path="/register"
             exact
-            render={(props) =>
-              <Register {...props}
-                isLoggedIn={this.state.isLoggedIn}
-              />
-            }
+            render={props => (
+              <Register {...props} isLoggedIn={this.state.isLoggedIn} />
+            )}
           />
           <Route component={NotFound} />
         </Switch>

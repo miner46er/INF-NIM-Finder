@@ -9,10 +9,10 @@ import "../styles/SearchPage.css";
 
 /**
  * Search bar that contains input form and a submit button.
- * @param {Props} props 
+ * @param {Props} props
  */
 function SearchBar(props) {
-  return(
+  return (
     <div className="SearchBar">
       <form onSubmit={props.handleSubmit}>
         <InputGroup>
@@ -35,24 +35,22 @@ function SearchBar(props) {
 
 /**
  * Navigation for search result pages.
- * @param {Props} props 
+ * @param {Props} props
  */
 function SearchNavigation(props) {
-  return(
+  return (
     <div className="SearchNavigation">
       <Button
         disabled={props.page <= 0}
-        onClick={() => props.changePage(props.page-1)}
+        onClick={() => props.changePage(props.page - 1)}
         variant="dark"
       >
         &#8249; Previous
       </Button>
-      <p>
-        Page: {props.page + 1}
-      </p>
+      <p>Page: {props.page + 1}</p>
       <Button
         disabled={props.pageEntryCount === 0}
-        onClick={() => props.changePage(props.page+1)}
+        onClick={() => props.changePage(props.page + 1)}
         variant="dark"
       >
         Next &#8250;
@@ -63,28 +61,29 @@ function SearchNavigation(props) {
 
 /**
  * Presents the search result in a table.
- * @param {Props} props 
+ * @param {Props} props
  */
 function SearchResults(props) {
   // check whether the page's result contains desireable data
-  if (props.listMahasiswa === null ||
+  if (
+    props.listMahasiswa === null ||
     props.listMahasiswa === undefined ||
-    props.listMahasiswa.length === 0) {
+    props.listMahasiswa.length === 0
+  ) {
     return <h2 id="NoResult">No Result</h2>;
   }
 
   // maps search results to table rows
-  const tableMahasiswa = props.listMahasiswa.map(
-    (mahasiswa) => 
-      <tr key={mahasiswa.nim_tpb}>
-        <td>{mahasiswa.name}</td>
-        <td>{mahasiswa.nim_tpb}</td>
-        <td>{mahasiswa.nim_jur}</td>
-        <td>{mahasiswa.prodi}</td>
-      </tr>
-  );
+  const tableMahasiswa = props.listMahasiswa.map(mahasiswa => (
+    <tr key={mahasiswa.nim_tpb}>
+      <td>{mahasiswa.name}</td>
+      <td>{mahasiswa.nim_tpb}</td>
+      <td>{mahasiswa.nim_jur}</td>
+      <td>{mahasiswa.prodi}</td>
+    </tr>
+  ));
 
-  return(
+  return (
     <div className="SearchResults">
       <h3>Query: {props.lastQuery}</h3>
       <Table responsive>
@@ -96,9 +95,7 @@ function SearchResults(props) {
             <th>Prodi</th>
           </tr>
         </thead>
-        <tbody>
-          {tableMahasiswa}
-        </tbody>
+        <tbody>{tableMahasiswa}</tbody>
       </Table>
     </div>
   );
@@ -114,8 +111,8 @@ export default class SearchPage extends Component {
     this.state = {
       haveSearched: false,
       searchField: "",
-      resultCountPerPage: 10,
-    }
+      resultCountPerPage: 10
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -128,50 +125,52 @@ export default class SearchPage extends Component {
    * @param {Number} newPage new page value
    */
   changePage(newPage) {
-    this.setState(
-      { page: newPage },
-      () => this.sendQuery()
-    );
+    this.setState({ page: newPage }, () => this.sendQuery());
   }
 
   /**
    * Handles search query sending
    */
   sendQuery() {
-
     // check whether the search field contains only alphanumeric or not
     const isQueryName = isNaN(this.state.searchField) ? true : false;
 
     // prepares query data depending on query tipe (name/NIM)
     const params = {
-      ...(isQueryName ?
-          {name: this.state.searchField} :
-          {query: this.state.searchField}),
+      ...(isQueryName
+        ? { name: this.state.searchField }
+        : { query: this.state.searchField }),
       page: this.state.page,
       count: this.state.resultCountPerPage
     };
 
     // prepares query  url depending on query tipe (name/NIM)
-    const queryUrl = "https://api.stya.net/nim/"
-                      + (isQueryName ? "byname" : "byid")
-                      + "?"
-                      + qs.stringify(params);
-    
+    const queryUrl =
+      "https://api.stya.net/nim/" +
+      (isQueryName ? "byname" : "byid") +
+      "?" +
+      qs.stringify(params);
+
     // prepares axios config
     const options = {
       method: "GET",
       url: queryUrl,
-      headers: { 'Auth-Token': this.props.token },
+      headers: { "Auth-Token": this.props.token }
     };
 
     // sending the query
     axios(options)
-      .then(res => this.setState({
-        listMahasiswa: res.data.payload,
-        lastQuery: res.data.query,
-        haveSearched: true
-      }))
-      .catch(error => {alert(error); console.log(error)});
+      .then(res =>
+        this.setState({
+          listMahasiswa: res.data.payload,
+          lastQuery: res.data.query,
+          haveSearched: true
+        })
+      )
+      .catch(error => {
+        alert(error);
+        console.log(error);
+      });
   }
 
   /**
@@ -182,7 +181,7 @@ export default class SearchPage extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+  };
 
   /**
    * Handles form's onSubmit event
@@ -191,21 +190,17 @@ export default class SearchPage extends Component {
   handleSubmit = async event => {
     event.preventDefault();
 
-    this.setState(
-      { page: 0 },
-      () => this.sendQuery()
-    );
-  }
+    this.setState({ page: 0 }, () => this.sendQuery());
+  };
 
   render() {
-    return(
+    return (
       <div className="SearchPage">
         <SearchBar
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        {
-          this.state.haveSearched ?
+        {this.state.haveSearched ? (
           <div>
             <SearchResults
               listMahasiswa={this.state.listMahasiswa}
@@ -216,9 +211,8 @@ export default class SearchPage extends Component {
               changePage={this.changePage}
               pageEntryCount={this.state.listMahasiswa.length}
             />
-          </div> :
-          null
-        }
+          </div>
+        ) : null}
       </div>
     );
   }

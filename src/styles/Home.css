@@ -1,35 +1,35 @@
 .Home {
-    flex-grow : 1;
+  flex-grow: 1;
 }
 
 .lander {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap-reverse;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap-reverse;
 }
 
 .landerMessage {
-    display: flex;
-    flex-grow: 3;
+  display: flex;
+  flex-grow: 3;
 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    padding: 50px 100px;
-    background: #282c34;
+  padding: 50px 100px;
+  background: #282c34;
 }
 
 .landerMessage h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: white;
 }
 
 .landerMessage p {
-    color: rgb(167, 167, 167);
+  color: rgb(167, 167, 167);
 }
 
 .Login {
-    flex-grow: 1;
+  flex-grow: 1;
 }
